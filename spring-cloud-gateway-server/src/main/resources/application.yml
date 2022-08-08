@@ -1,0 +1,53 @@
+server:
+  port: 8110
+
+  
+spring:
+  banner:
+    location: banner.txt
+  application:
+    name: spring-cloud-gateway-server
+  cloud:
+    gateway:
+      routes:
+      - id: ManageDepartment
+        uri: http://localhost:8081/
+        predicates:
+        - Path=/ManageDepartment/**
+        
+      - id: ManageInventory
+        uri: http://localhost:8082/
+        predicates:
+        - Path=/ManageInventory/**
+        
+      - id: ManageStaff
+        uri: http://localhost:8083/
+        predicates:
+        - Path=/ManageStaff/**
+        
+      - id: RetrieveReport
+        uri: http://localhost:8084/
+        predicates:
+        - Path=/RetrieveReport/**  
+      
+      - id: MakeReservation
+        uri: http://localhost:8086/
+        predicates:
+        - Path=/MakeReservation/** , /IssueBill/**
+        
+      - id: ManageRoom
+        uri: http://localhost:8087/
+        predicates:
+        - Path=/ManageRoom/** , /SearchRoom/**
+        
+      - id: ManageGuest
+        uri: http://localhost:8088/
+        predicates:
+        - Path=/ManageGuest/**
+        
+      - id: ManageUser
+        uri: http://localhost:8089/
+        predicates:
+        - Path=/owner/ManageUser/** , /ManageLogin/**
+        
+      

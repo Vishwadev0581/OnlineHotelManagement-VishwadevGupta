@@ -1,0 +1,19 @@
+server:
+      port: 8084
+spring:
+      banner:
+          location: banner.txt
+      application:
+            name: retrieve-report-service
+      data:
+             mongodb:
+                    host: localhost
+                    port: 27017
+                    database: reportdb
+      main:
+              allow-circular-references: true
+logging:
+  level:
+    com:
+      capgemini:
+        retrievereportservice: INFO

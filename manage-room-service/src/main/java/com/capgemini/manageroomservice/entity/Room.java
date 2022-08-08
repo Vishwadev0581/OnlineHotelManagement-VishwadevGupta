@@ -1,0 +1,109 @@
+package com.capgemini.manageroomservice.entity;
+
+import java.sql.Time;
+import java.util.Date;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.springframework.boot.autoconfigure.domain.EntityScan;
+
+@Entity
+@EntityScan
+@Table(name = "roomdetails")
+public class Room {
+	@Id
+	@Column
+	private int roomno;
+	@Column
+	private String type;
+	@Column
+	private int capacity;
+	@Column
+	private String status;
+	@Column
+	private Time check_in_time;
+	@Column
+	private Time check_out_time;
+	@Column
+	private int first_night_rate;
+	@Column
+	private int extension_rate;
+	@Column
+	private Date bookedtill;
+
+	public Date getBookedtill() {
+		return bookedtill;
+	}
+
+	public void setBookedtill(Date bookedtill) {
+		this.bookedtill = bookedtill;
+	}
+
+	public Time getCheck_in_time() {
+		return check_in_time;
+	}
+
+	public void setCheck_in_time(Time check_in_time) {
+		this.check_in_time = check_in_time;
+	}
+
+	public Time getCheck_out_time() {
+		return check_out_time;
+	}
+
+	public void setCheck_out_time(Time check_out_time) {
+		this.check_out_time = check_out_time;
+	}
+
+	public int getRoomno() {
+		return roomno;
+	}
+
+	public void setRoomno(int roomno) {
+		this.roomno = roomno;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public int getCapacity() {
+		return capacity;
+	}
+
+	public void setCapacity(int capacity) {
+		this.capacity = capacity;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public int getFirst_night_rate() {
+		return first_night_rate;
+	}
+
+	public void setFirst_night_rate(int first_night_rate) {
+		this.first_night_rate = first_night_rate;
+	}
+
+	public int getExtension_rate() {
+		return extension_rate;
+	}
+
+	public void setExtension_rate(int extension_rate) {
+		this.extension_rate = extension_rate;
+	}
+
+}

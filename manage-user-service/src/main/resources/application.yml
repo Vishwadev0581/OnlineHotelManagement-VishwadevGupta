@@ -1,0 +1,21 @@
+server:
+    port: 8089
+spring:
+    banner:
+          location: banner.txt
+    application:
+         name: manage-user-service
+    datasource:
+     driverClassName: com.mysql.cj.jdbc.Driver
+     url: jdbc:mysql://localhost:3306/userdb
+     username: divyansh
+     password: 1234
+    jpa:
+     hibernate.ddl-auto: update
+     generate-ddl: true
+     show-sql: true
+logging:
+  level:
+    com:
+      capgemini:
+        manageuserservice: INFO
