@@ -9,7 +9,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.capgemini.manageuserservice.entity.User;
 
-@SuppressWarnings("serial")
 public class CustomUserDetails implements UserDetails {
 
 	private User user;

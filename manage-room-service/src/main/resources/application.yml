@@ -1,22 +1,23 @@
+
 spring:
-    banner:
-            location: banner.txt
-    application:
-            name: manage-room-service
-    datasource:
-     driverClassName: com.mysql.cj.jdbc.Driver
-     url: jdbc:mysql://localhost:3306/roomDB
-     username: divyansh
-     password: 1234
-    jpa:
+  banner:
+    location: banner.txt
+  application:
+    name: manage-room-service
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/roomdb
+    username: root
+    password: Vishu@123
+  jpa:
      hibernate.ddl-auto: update
      generate-ddl: true
      show-sql: true
-server:
-    port: 8087
 logging:
   level:
     com:
       capgemini:
-        manageroomservice: INFO
-    
+        managedepartmentservice: INFO
+        
+server:
+  port: 8087

@@ -14,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import java.io.File;
 import java.io.FileInputStream;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,8 +28,11 @@ import com.capgemini.retrievereportservice.service.StaffReportService;
 
 @RestController
 @RequestMapping("/RetrieveReport")
+@CrossOrigin
 public class ReportController {
+
 	Logger logger = LoggerFactory.getLogger(ReportController.class);
+
 	@Autowired
 	private StaffReportService staffReportService;
 
@@ -46,13 +50,13 @@ public class ReportController {
 
 	@GetMapping(value = "/dbtest", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<StaffReportModel>> dbTest() {
-		logger.info("DB Test for staff report has been accessed");
+		logger.info("DB Test has been accessed");
 		return ResponseEntity.ok(staffReportService.getStaffPaymentService());
 	}
 
 	@GetMapping(value = "/generatestaffreport")
 	public ResponseEntity<Object> generateStaffReport() {
-
+		logger.info("Generate Staff Report has been accessed");
 		ResponseEntity<StaffList> staffList = restTemplate.getForEntity("http://localhost:8083/ManageStaff/reportdata",
 				StaffList.class);
 		File file = staffReportService.generateStaffRreport(staffList.getBody());
@@ -64,11 +68,11 @@ public class ReportController {
 			headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
 			headers.add("Pragma", "no-cache");
 			headers.add("Expires", "0");
-			logger.info("Generate staff report has been accessed");
+
 			return ResponseEntity.ok().headers(headers).contentLength(file.length())
 					.contentType(MediaType.parseMediaType("application/txt")).body(resource);
 		} catch (Exception e) {
-			logger.info("Error in generate staff report has been occured");
+			logger.info("Error in Generate Staff Report has been occured");
 			return new ResponseEntity<>("error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 
@@ -76,6 +80,7 @@ public class ReportController {
 
 	@GetMapping(value = "/generateincomereport")
 	public ResponseEntity<Object> generateIncomeReport() {
+		logger.info("Generate Income Report has been accessed");
 		ResponseEntity<IncomeList> incomeList = restTemplate.getForEntity("http://localhost:8086/IssueBill/reportdata",
 				IncomeList.class);
 		File file = incomeReportService.generateIncomeReport(incomeList.getBody());
@@ -87,12 +92,14 @@ public class ReportController {
 			headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
 			headers.add("Pragma", "no-cache");
 			headers.add("Expires", "0");
-			logger.info("Generate income report has been accessed");
+
 			return ResponseEntity.ok().headers(headers).contentLength(file.length())
 					.contentType(MediaType.parseMediaType("application/txt")).body(resource);
 		} catch (Exception e) {
-			logger.info("Error in generate income report has been occured");
 			return new ResponseEntity<>("error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
 }
+
+
+

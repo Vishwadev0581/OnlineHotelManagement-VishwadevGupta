@@ -1,7 +1,26 @@
-2022-08-17 00:57:00,537 INFO com.capgemini.makereservationservice.MakeReservationServiceApplication [main] Starting MakeReservationServiceApplication using Java 17.0.2 on vishu-Lenovo-ideapad-330-15IKB with PID 600659 (/home/vishu/git/OnlineHotelManagement-VishwadevGupta/make-reservation-service/target/classes started by vishu in /home/vishu/git/OnlineHotelManagement-VishwadevGupta/make-reservation-service)
-2022-08-17 00:57:00,556 INFO com.capgemini.makereservationservice.MakeReservationServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-08-17 00:57:08,105 INFO com.capgemini.makereservationservice.MakeReservationServiceApplication [main] Started MakeReservationServiceApplication in 8.357 seconds (JVM running for 9.761)
-2022-08-17 01:28:38,747 ERROR com.netflix.discovery.DiscoveryClient [DiscoveryClient-HeartbeatExecutor-0] DiscoveryClient_MAKE-RESERVATION-SERVICE/192.168.1.8:make-reservation-service:8086 - was unable to send heartbeat!
+2022-08-17 01:16:20,246 ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [main] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8089 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8089 or configure this application to listen on another port.
+
+2022-08-17 09:33:29,905 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Starting ManageUserServiceApplication using Java 17.0.2 on vishu-Lenovo-ideapad-330-15IKB with PID 54882 (/home/vishu/git/OnlineHotelManagement-VishwadevGupta/manage-user-service/target/classes started by vishu in /home/vishu/git/OnlineHotelManagement-VishwadevGupta/manage-user-service)
+2022-08-17 09:33:29,919 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
+2022-08-17 09:33:37,670 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Started ManageUserServiceApplication in 8.14 seconds (JVM running for 9.596)
+2022-08-17 09:34:32,839 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-5] Add jwt in DB has been accessed
+2022-08-17 09:34:32,845 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-6] Add jwt in DB has been accessed
+2022-08-17 09:38:09,838 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-7] delete jwt from DB has been accessed
+2022-08-17 10:22:10,283 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-3] Add jwt in DB has been accessed
+2022-08-17 10:23:26,068 INFO com.capgemini.manageuserservice.controller.UserController [http-nio-8089-exec-4] delete jwt from DB has been accessed
+2022-08-17 10:32:08,838 ERROR com.netflix.discovery.DiscoveryClient [DiscoveryClient-HeartbeatExecutor-0] DiscoveryClient_MANAGE-USER-SERVICE/192.168.1.8:manage-user-service:8089 - was unable to send heartbeat!
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.sendHeartBeat(EurekaHttpClientDecorator.java:89)
@@ -15,7 +34,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-08-17 01:28:42,622 ERROR com.netflix.discovery.DiscoveryClient [RMI TCP Connection(41)-127.0.0.1] DiscoveryClient_MAKE-RESERVATION-SERVICE/192.168.1.8:make-reservation-service:8086 - de-registration failedCannot execute request on any known server
+2022-08-17 10:32:13,787 ERROR com.netflix.discovery.DiscoveryClient [RMI TCP Connection(68)-127.0.0.1] DiscoveryClient_MANAGE-USER-SERVICE/192.168.1.8:manage-user-service:8089 - de-registration failedCannot execute request on any known server
 com.netflix.discovery.shared.transport.TransportException: Cannot execute request on any known server
 	at com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient.execute(RetryableEurekaHttpClient.java:112)
 	at com.netflix.discovery.shared.transport.decorator.EurekaHttpClientDecorator.cancel(EurekaHttpClientDecorator.java:71)
@@ -51,7 +70,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:72)
-	at jdk.internal.reflect.GeneratedMethodAccessor70.invoke(Unknown Source)
+	at jdk.internal.reflect.GeneratedMethodAccessor82.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at java.base/sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:262)
@@ -68,7 +87,7 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl$PrivilegedOperation.run(RMIConnectionImpl.java:1310)
 	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.doPrivilegedOperation(RMIConnectionImpl.java:1405)
 	at java.management.rmi/javax.management.remote.rmi.RMIConnectionImpl.invoke(RMIConnectionImpl.java:829)
-	at java.base/jdk.internal.reflect.GeneratedMethodAccessor72.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.GeneratedMethodAccessor84.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at java.rmi/sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:360)
@@ -84,10 +103,5 @@ com.netflix.discovery.shared.transport.TransportException: Cannot execute reques
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
 	at java.base/java.lang.Thread.run(Thread.java:833)
-2022-08-17 21:38:10,202 INFO com.capgemini.makereservationservice.MakeReservationServiceApplication [main] Starting MakeReservationServiceApplication using Java 17.0.2 on vishu-Lenovo-ideapad-330-15IKB with PID 54676 (/home/vishu/git/OnlineHotelManagement-VishwadevGupta/make-reservation-service/target/classes started by vishu in /home/vishu/git/OnlineHotelManagement-VishwadevGupta/make-reservation-service)
-2022-08-17 21:38:11,001 INFO com.capgemini.makereservationservice.MakeReservationServiceApplication [main] No active profile set, falling back to 1 default profile: "default"
-2022-08-17 21:38:17,067 INFO com.capgemini.makereservationservice.MakeReservationServiceApplication [main] Started MakeReservationServiceApplication in 7.637 seconds (JVM running for 9.148)
-2022-08-17 22:32:56,495 INFO com.capgemini.makereservationservice.controller.ReservationController [http-nio-8086-exec-1] Make Reservation has been accessed
-2022-08-17 22:33:02,658 INFO com.capgemini.makereservationservice.controller.ReservationController [http-nio-8086-exec-2] Make Reservation has been accessed
-2022-08-17 22:33:25,087 INFO com.capgemini.makereservationservice.controller.ReservationController [http-nio-8086-exec-3] View Booking by room no has been accessed
-2022-08-17 22:33:57,181 INFO com.capgemini.makereservationservice.controller.ReservationController [http-nio-8086-exec-5] View Booking by room no has been accessed
+2022-08-17 21:50:44,981 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] Starting ManageUserServiceApplication using Java 17.0.2 on vishu-Lenovo-ideapad-330-15IKB with PID 56576 (/home/vishu/git/OnlineHotelManagement-VishwadevGupta/manage-user-service/target/classes started by vishu in /home/vishu/git/OnlineHotelManagement-VishwadevGupta/manage-user-service)
+2022-08-17 21:50:44,996 INFO com.capgemini.manageuserservice.ManageUserServiceApplication [main] No active profile set, falling back to 1 default profile: "default"

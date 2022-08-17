@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,6 +23,7 @@ import com.capgemini.makereservationservice.service.ReservationService;
 
 @RestController
 @RequestMapping("/MakeReservation")
+@CrossOrigin
 public class ReservationController {
 
 	Logger logger = LoggerFactory.getLogger(ReservationController.class);
@@ -35,25 +37,26 @@ public class ReservationController {
 
 	@GetMapping(value = "/HelloTest", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> helloTest() {
-		logger.info("Hello test has been accessed");
+		logger.info("Hello Test has been accessed");
 		return ResponseEntity.ok("Hello World 6");
 	}
 
 	@GetMapping(value = "/viewbookings/{roomno}", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<ReservationModel>> findAllBookingsByRoomno(@PathVariable int roomno) {
-		logger.info("View Booking has been accessed");
+		logger.info("View Booking by room no has been accessed");
 		return ResponseEntity.ok(reservationService.findBookingsOfRoom(roomno));
 
 	}
 
 	@GetMapping(value = "/viewall", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<ReservationModel>> viewAll() {
-		logger.info("All Booking view has been accessed");
+		logger.info("All Booking has been accessed");
 		return ResponseEntity.ok(reservationService.findallBookings());
 	}
 
 	@PostMapping(value = "/doreservation", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<String> makeReservation(@RequestBody ReservationModel reservation) {
+		logger.info("Make Reservation has been accessed");
 		BookData bookdata = reservationService.doReservation(reservation);
 		StringBuilder maildata = new StringBuilder(
 				"Hello Guest, \n\nThank you for choosing us as your Staying destination. Your room has been booked and details are as follows: \n");
@@ -62,10 +65,10 @@ public class ReservationController {
 		maildata.append("Check out date: ").append(reservation.getCheckOut()).append("\n");
 		maildata.append("Have a great staying");
 		service.sendSimpleEmail(reservation.getGuestEmail(), "Room Booking Details", maildata.toString());
-		logger.info("Make Reservation has been accessed");
 		return ResponseEntity
 				.ok(resttemplate.postForObject("http://localhost:8087/ManageRoom/bookedroom", bookdata, String.class));
 
 	}
 
 }
+

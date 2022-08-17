@@ -12,11 +12,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @ControllerAdvice
 public class GlobalErrorHandler {
-
+	
 	@SuppressWarnings("rawtypes")
 	@ExceptionHandler(ConstraintViolationException.class)
 	@ResponseBody
-	public ResponseError handleCustomException(ConstraintViolationException ex) {
+	public ResponseError handleCustomException(ConstraintViolationException ex)
+	{
 		ResponseError responseError = new ResponseError();
 		List<String> errorMessages = new ArrayList<String>();
 		for (ConstraintViolation constraintViolation : ex.getConstraintViolations()) {
@@ -25,6 +26,6 @@ public class GlobalErrorHandler {
 		responseError.setErrorMessage(errorMessages);
 		responseError.setStatusCode(HttpStatus.BAD_REQUEST.value());
 		return responseError;
-	}
+		}
 
 }
